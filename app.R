@@ -603,29 +603,29 @@ server <- function(input, output, sessio) {
       rmse_rr <- sqrt(mean((rr_data$simul_complete - rr_data$obs_complete)^2))
       biais_rr <- mean(rr_data$simul_complete - rr_data$obs_complete)
       corr_rr <- cor(rr_data$simul_complete, rr_data$obs_complete)
-      cv_simulrr <- ((sd(rr_data$simul_complete, na.rm = TRUE) / mean(rr_data$simul_complete, na.rm = TRUE)) * 100)
-      cv_obsrr <- ((sd(rr_data$obs_complete, na.rm = TRUE) / mean(rr_data$obs_complete, na.rm = TRUE)) * 100)
+      cv_simulrr <- ((sd(rr_data$simul_complete, na.rm = TRUE) / mean(rr_data$simul_complete, na.rm = TRUE)))
+      cv_obsrr <- ((sd(rr_data$obs_complete, na.rm = TRUE) / mean(rr_data$obs_complete, na.rm = TRUE)))
       
       
       
       rmse_tmax <- sqrt(mean((tmax_data$simul_complete - tmax_data$obs_complete)^2))
       biais_tmax <- mean(tmax_data$simul_complete - tmax_data$obs_complete)
       corr_tmax <- cor(tmax_data$simul_complete, tmax_data$obs_complete)
-      cv_simultmax <- ((sd(tmax_data$simul_complete, na.rm = TRUE) / mean(tmax_data$simul_complete, na.rm = TRUE)) * 100)
-      cv_obstmax <- ((sd(tmax_data$obs_complete, na.rm = TRUE) / mean(tmax_data$obs_complete, na.rm = TRUE)) * 100)
+      cv_simultmax <- ((sd(tmax_data$simul_complete, na.rm = TRUE) / mean(tmax_data$simul_complete, na.rm = TRUE)))
+      cv_obstmax <- ((sd(tmax_data$obs_complete, na.rm = TRUE) / mean(tmax_data$obs_complete, na.rm = TRUE)))
       
       
       rmse_tmin <- sqrt(mean((tmin_data$simul_complete - tmin_data$obs_complete)^2))
       biais_tmin <- mean(tmin_data$simul_complete - tmin_data$obs_complete)
       corr_tmin <- cor(tmin_data$simul_complete, tmin_data$obs_complete)
-      cv_simultmin <- ((sd(tmin_data$simul_complete, na.rm = TRUE) / mean(tmin_data$simul_complete, na.rm = TRUE)) * 100)
-      cv_obstmin <- ((sd(tmin_data$obs_complete, na.rm = TRUE) / mean(tmin_data$obs_complete, na.rm = TRUE)) * 100)
+      cv_simultmin <- ((sd(tmin_data$simul_complete, na.rm = TRUE) / mean(tmin_data$simul_complete, na.rm = TRUE)))
+      cv_obstmin <- ((sd(tmin_data$obs_complete, na.rm = TRUE) / mean(tmin_data$obs_complete, na.rm = TRUE)))
       
       rmse_tmoy <- sqrt(mean((tmoy_data_simul - tmoy_data_obs)^2))
       biais_tmoy <- mean(tmoy_data_simul - tmoy_data_obs)
       corr_tmoy <- cor(tmoy_data_simul, tmoy_data_obs)
-      cv_simultmoy <- ((sd(tmoy_data_simul, na.rm = TRUE) / mean(tmoy_data_simul, na.rm = TRUE)) * 100)
-      cv_obstmoy <- ((sd(tmoy_data_obs, na.rm = TRUE) / mean(tmoy_data_obs, na.rm = TRUE)) * 100)
+      cv_simultmoy <- ((sd(tmoy_data_simul, na.rm = TRUE) / mean(tmoy_data_simul, na.rm = TRUE)))
+      cv_obstmoy <- ((sd(tmoy_data_obs, na.rm = TRUE) / mean(tmoy_data_obs, na.rm = TRUE)))
       
       
       
@@ -650,12 +650,12 @@ server <- function(input, output, sessio) {
       
       output$cv_simuloutput_rr <- renderText({
         if (input$display_rr) {
-          sprintf("Coefficient de Variation (CV) de RR pour les simulations: %.2f%%", cv_simulrr)
+          sprintf("Coefficient de Variation (CV) de RR pour les simulations: %.2f", cv_simulrr)
         }
       })
       output$cv_obsoutput_rr <- renderText({
         if (input$display_rr) {
-          sprintf("Coefficient de Variation (CV) de RR pour les observations: %.2f%%", cv_obsrr)
+          sprintf("Coefficient de Variation (CV) de RR pour les observations: %.2f", cv_obsrr)
         }
       })
       
@@ -680,12 +680,12 @@ server <- function(input, output, sessio) {
       
       output$cv_simuloutput_tmax <- renderText({
         if (input$display_tmax) {
-          sprintf("Coefficient de Variation (CV) de Tmax pour les simul: %.2f%%", cv_simultmax)
+          sprintf("Coefficient de Variation (CV) de Tmax pour les simul: %.2f", cv_simultmax)
         }
       })
       output$cv_obsoutput_tmax <- renderText({
         if (input$display_tmax) {
-          sprintf("Coefficient de Variation (CV) de Tmax pour les observations: %.2f%%", cv_obstmax)
+          sprintf("Coefficient de Variation (CV) de Tmax pour les observations: %.2f", cv_obstmax)
         }
       })
       
@@ -710,12 +710,12 @@ server <- function(input, output, sessio) {
       
       output$cv_simuloutput_tmin <- renderText({
         if (input$display_tmin) {
-          sprintf("Coefficient de Variation (CV) de Tmin pour les simulations: %.2f%%", cv_simultmin)
+          sprintf("Coefficient de Variation (CV) de Tmin pour les simulations: %.2f", cv_simultmin)
         }
       })
       output$cv_obsoutput_tmin <- renderText({
         if (input$display_tmin) {
-          sprintf("Coefficient de Variation (CV) de Tmin pour les observations: %.2f%%", cv_obstmin)
+          sprintf("Coefficient de Variation (CV) de Tmin pour les observations: %.2f", cv_obstmin)
         }
       })
       
@@ -740,12 +740,12 @@ server <- function(input, output, sessio) {
       
       output$cv_simuloutput_tmoy <- renderText({
         if (input$display_tmoy) {
-          sprintf("Coefficient de Variation (CV) de Tmoy pour les observations: %.2f%%", cv_simultmoy)
+          sprintf("Coefficient de Variation (CV) de Tmoy pour les observations: %.2f", cv_simultmoy)
         }
       })
       output$cv_obsoutput_tmoy <- renderText({
         if (input$display_tmoy) {
-          sprintf("Coefficient de Variation (CV) de Tmoy pour les simulations: %.2f%%", cv_obstmoy)
+          sprintf("Coefficient de Variation (CV) de Tmoy pour les simulations: %.2f", cv_obstmoy)
         }
       })
       
